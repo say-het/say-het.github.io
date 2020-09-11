@@ -1,0 +1,19 @@
+*{
+  outline:none !important;
+}
+#searchBox{
+  width: 79%;
+  display:inline-block;
+  float: left;
+  margin-right: 1%;
+}
+#searchBtn{
+  width: 19%;
+  display:inline-block;
+  margin-left: 1%;
+  float: right;
+}
+#newProjectBtn{
+  display: inline-block;
+  float: right;
+}
