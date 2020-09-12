@@ -1,6 +1,7 @@
 *{
   outline:none !important;
 }
+/* These settings are for displaying Search bar and Search Button In One Line*/
 #searchBox{
   width: 79%;
   display:inline-block;
@@ -11,9 +12,5 @@
   width: 19%;
   display:inline-block;
   margin-left: 1%;
-  float: right;
-}
-#newProjectBtn{
-  display: inline-block;
   float: right;
 }
