@@ -1,4 +1,6 @@
+// Container where search bar and search button is
 let searchContainer = document.getElementById('searchContainer');
+// Templete to add details in Project List
 const dummyTitle = "dummyTitle";
 const dummyDescription = "dummyDescription";
 const dummyLink = "dummyLink";
@@ -8,6 +10,7 @@ let dL = 'dL';
 localStorage.setItem('dT',dT)
 localStorage.setItem('dD',dD)
 localStorage.setItem('dL',dL)
+// This is where projects are listed
 let projectsList = document.getElementById('projectsList');
     html = `<div id="accordion">
     <div class="card">
