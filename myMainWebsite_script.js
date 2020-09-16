@@ -4,9 +4,9 @@ let searchContainer = document.getElementById('searchContainer');
 const dummyTitle = "dummyTitle";
 const dummyDescription = "dummyDescription";
 const dummyLink = "dummyLink";
-let dT = 'Any Countries' Any Information';
-let dD = 'You can find any Countries' Any information like It's Name,Population,Area,Capital,Calling Code etc..';
-let dL = 'anyInfoAboutCountry_index.html';
+let dT = `Any Countries' Any Information`;
+let dD = `You can find any Countries' Any information like It's Name,Population,Area,Capital,Calling Code etc..`;
+let dL = `anyInfoAboutCountry_index.html`;
 localStorage.setItem('dT',dT)
 localStorage.setItem('dD',dD)
 localStorage.setItem('dL',dL)
