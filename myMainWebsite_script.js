@@ -15,15 +15,15 @@ let projectsList = document.getElementById('projectsList');
     <div class="card-header" id="headingOne">
     <h5 class="mb-0">
     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-  ${localStorage.getItem(dT)}
+  ${localStorage.getItem(T)}
     </button>
     </h5>
     </div>
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
     <div class="card-body">
-  ${localStorage.getItem(dD)}
-     <a href=${localStorage.getItem(dL)}>Go To Project...</a>
+  ${localStorage.getItem(D)}
+     <a href=${localStorage.getItem(L)}>Go To Project...</a>
     </div>
     </div>
     </div>
