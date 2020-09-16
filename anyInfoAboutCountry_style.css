@@ -1,0 +1,26 @@
+* {
+  outline: none !important;
+}
+.headingBox {
+  border: 3px solid red;
+  border-radius: 8px;
+  width: 90%;
+  margin-top: 1vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin-right: 1vh;
+  margin-left: 1vh;
+  background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+#searchBox{
+  width: 79%;
+  display:inline-block;
+  float: left;
+  margin-right: 1%;
+}
+#searchBtn{
+  width: 19%;
+  display:inline-block;
+  margin-left: 1%;
+  float: right;
+}
