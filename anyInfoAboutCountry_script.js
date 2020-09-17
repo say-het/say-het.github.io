@@ -17,18 +17,18 @@ searchBtn.addEventListener('click', ()=> {
     
     // Api Fetching(For Search)
     fetch(`https://restcountries.eu/rest/v2/name/${search}`).then(response => response.json()).then((data) => {
-
+      // console.log(data)
       if (data.status == 404) {
         let errorHeading = document.getElementById('errorHeading');
         errorHeading.innerHTML = `New Search Items Listed Here<br>
         Data Not Available`;
-
+        console.log("error")
       }
       else{
         let errorHeading = document.getElementById('errorHeading');
         errorHeading.innerHTML = `New Search Items Listed Here`
       // If There is many Countries so for that This is For Loop
-
+        console.log("no error")
       for (i in data) {
         let name = data[i].name;
         let region = data[i].region;
@@ -76,7 +76,7 @@ searchBtn.addEventListener('click', ()=> {
 // Below code will execute when someone hits enter to search
 window.addEventListener("keypress", function(e) {
   
-
+  console.log(e.keyCode)
   if (e.keyCode === 13) {
     e.preventDefault();
     
@@ -89,7 +89,7 @@ window.addEventListener("keypress", function(e) {
         let errorHeading = document.getElementById('errorHeading');
         errorHeading.innerHTML = `New Search Items Listed Here<br>
         Data Not Available`;
-
+        console.log("error")
       }
       else{
         let errorHeading = document.getElementById('errorHeading');
