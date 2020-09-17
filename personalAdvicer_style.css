@@ -1,0 +1,25 @@
+.optionButtons{
+
+  margin-top: 3%;
+
+}
+
+#searchBox{
+
+  width: 80%;
+
+  float: left;
+
+  display: inline-block;
+
+} 
+
+#searchBtn{
+
+  display: inline-block;
+
+  float: right;
+
+  width: 20%;
+
+} 
