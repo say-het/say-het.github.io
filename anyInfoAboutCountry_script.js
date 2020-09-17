@@ -18,7 +18,17 @@ searchBtn.addEventListener('click', ()=> {
     // Api Fetching(For Search)
     fetch(`https://restcountries.eu/rest/v2/name/${search}`).then(response => response.json()).then((data) => {
 
+      if (data.status == 404) {
+        let errorHeading = document.getElementById('errorHeading');
+        errorHeading.innerHTML = `New Search Items Listed Here<br>
+        Data Not Available`;
+
+      }
+      else{
+        let errorHeading = document.getElementById('errorHeading');
+        errorHeading.innerHTML = `New Search Items Listed Here`
       // If There is many Countries so for that This is For Loop
+
       for (i in data) {
         let name = data[i].name;
         let region = data[i].region;
@@ -44,18 +54,19 @@ searchBtn.addEventListener('click', ()=> {
         Region : ${region}<br>
         Capital : ${capital}<br>
         Population : ${population}<br>
-        Area : ${area}
+        Area : ${area}<br>
         Demonym : ${demonym}<br>
         Symbol : ${symbol}<br>
         Currency Code : ${currencyCode}<br>
         Currency Name : ${currencyName}<br>
-        Calling Code : ${callingCodes}<br>
+        Calling Code : +${callingCodes}<br>
         Short Name: ${shortName}
         </p>
         <a class="btn btn-primary btn-lg" href="http://www.google.com/search?q=${name}" role="button">More About ${name}</a>
         </div>`;
         // Displaying Html
         infoContainer.innerHTML = html
+      }
       }
     })
 
@@ -65,7 +76,7 @@ searchBtn.addEventListener('click', ()=> {
 // Below code will execute when someone hits enter to search
 window.addEventListener("keypress", function(e) {
   
-  console.log(e.keyCode)
+
   if (e.keyCode === 13) {
     e.preventDefault();
     
@@ -74,6 +85,15 @@ window.addEventListener("keypress", function(e) {
     
     // Api Fetching(For Search)
     fetch(`https://restcountries.eu/rest/v2/name/${search}`).then(response => response.json()).then((data) => {
+       if (data.status == 404) {
+        let errorHeading = document.getElementById('errorHeading');
+        errorHeading.innerHTML = `New Search Items Listed Here<br>
+        Data Not Available`;
+
+      }
+      else{
+        let errorHeading = document.getElementById('errorHeading');
+        errorHeading.innerHTML = `New Search Items Listed Here`
        // If There is many Countries so for that This is For Loop
       for (i in data) {
         let name = data[i].name;
@@ -99,18 +119,19 @@ window.addEventListener("keypress", function(e) {
         Region : ${region}<br>
         Capital : ${capital}<br>
         Population : ${population}<br>
-        Area : ${area}
+        Area : ${area}<br>
         Demonym : ${demonym}<br>
         Symbol : ${symbol}<br>
         Currency Code : ${currencyCode}<br>
         Currency Name : ${currencyName}<br>
-        Calling Code : ${callingCodes}<br>
+        Calling Code : +${callingCodes}<br>
         Short Name: ${shortName}
         </p>
         <a class="btn btn-primary btn-lg" href="http://www.google.com/search?q=${name}" role="button">More About ${name}</a>
         </div>`;
         // Displaying HTML
         infoContainer.innerHTML = html
+      }
       }
     })
 
