@@ -1,0 +1,33 @@
+*{
+  outline:none !important;
+}
+body{
+  /* background-image: url('/Pics/2.jpeg'); */
+  background-repeat: no-repeat;
+  background-size: 400px;
+  font-family: 'Texturina', serif;
+}
+.mcnavbar {
+  background: transparent !important;
+  color: black !important;
+}
+#searchBox {
+  width: 79%;
+  display: inline-block;
+  float: left;
+  margin-right: 1%;
+}
+#searchBtn {
+  width: 19%;
+  display: inline-block;
+  margin-left: 1%;
+  float: right;
+}
+#imgSec img{
+  display:block;
+    margin:auto;
+}
+#imgSec h6{
+  display:block;
+    margin:auto;
+}
