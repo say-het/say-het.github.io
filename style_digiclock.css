@@ -1,0 +1,21 @@
+*{
+  outline: none;
+}
+#img{
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.container{
+  position: relative;
+}
+#time{
+  position: absolute;
+  top: 40%;
+  left: 21%;
+}
+#msg{
+  position: absolute;
+  top: 35%;
+  left: 21%;
+}
