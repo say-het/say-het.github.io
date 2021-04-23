@@ -53,19 +53,19 @@ if (hours>12){
 }
 console.log(hours)
 if (hours >= 8 && ampms == 'PM') {
-    img.src = 'http://localhost:8158/Images/night.jpeg'    
+    img.src = 'https://say-het.github.io/morning.jpeg'    
 }
 if (hours >= 5 && hours < 8 && ampms == 'PM') {
-    img.src = 'http://localhost:8158/Images/evening.jpeg'    
+    img.src = 'https://say-het.github.io/evening.jpeg'    
 }
 if (hours >= 7  && hours < 12 && ampms == 'AM') {
-    img.src = 'http://localhost:8158/Images/morning.jpeg'    
+    img.src = 'https://say-het.github.io/morning.jpeg'    
 }
 if (hours == 12 && ampms == 'PM') {
-    img.src = 'http://localhost:8158/Images/afternoon.jpeg'    
+    img.src = 'https://say-het.github.io/afternoon.jpeg'    
 }
 if (hours < 5 && ampms == 'PM') {
-    img.src = 'http://localhost:8158/Images/afternoon.jpeg'    
+    img.src = 'https://say-het.github.io/afternoon.jpeg'    
 }
 
 getTime();
