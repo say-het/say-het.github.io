@@ -56,19 +56,19 @@ function getTime(argument) {
 
 function setWallpaper(argument) {
   if (msg.innerHTML == `Good Morning ${userName}!`) {
-    img.src = 'http://localhost:8158/Images/morning.jpeg'
+    img.src = 'https://say-het.github.io/morning.jpeg'
   }
   if (msg.innerHTML == `Good Noon ${userName}!`) {
-    img.src = 'http://localhost:8158/Images/afternoon.jpeg'
+    img.src = 'https://say-het.github.io/afternoon.jpeg'
   }
   if (msg.innerHTML == `Good Afternoon ${userName}!`) {
-    img.src = 'http://localhost:8158/Images/afternoon.jpeg'
+    img.src = 'https://say-het.github.io/afternoon.jpeg'
   }
   if (msg.innerHTML == `Good Evening ${userName}!`) {
-    img.src = 'http://localhost:8158/Images/evening.jpeg'
+    img.src = 'https://say-het.github.io/evening.jpeg'
   }
   if (msg.innerHTML == `Good Night ${userName}!`) {
-    img.src = 'http://localhost:8158/Images/night.jpeg'
+    img.src = 'https://say-het.github.io/night.jpeg'
   }
   }
   setTimeout(setWallpaper, 100);
