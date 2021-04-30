@@ -1,0 +1,24 @@
+/* setting outline to none to avoid ugly yellow lines */
+*{
+  outline:none;
+}
+/* main and first header of the page */
+#header{
+  margin: auto !important;
+  width: 40%;
+  padding-bottom: 1vh;
+}
+/* seeting searchBox and searchBtn to display properly in page */
+.searchBox{
+  width: 100%;
+  display:inline-block;
+  float: left;
+  margin-right: 1%;
+  margin-bottom: 1vh;
+}
+.searchBtn{
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 3vh;
+  margin-top: 2vh;
+}
