@@ -10,7 +10,6 @@
 }
 /* seeting searchBox and searchBtn to display properly in page */
 .searchBox{
-  width: 100%;
   display:inline-block;
   float: left;
   margin-right: 1%;
