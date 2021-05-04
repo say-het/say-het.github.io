@@ -61,7 +61,7 @@ searchBtn.addEventListener('click', ()=> {
         Population : ${population}<br>
         Area : ${area}<br>
         Demonym : ${demonym}<br>
-        Symbol : ${symbol}<br>
+        Currency Symbol : ${symbol}<br>
         Currency Code : ${currencyCode}<br>
         Currency Name : ${currencyName}<br>
         Calling Code : +${callingCodes}<br>
@@ -132,7 +132,7 @@ window.addEventListener("keypress", function(e) {
         Population : ${population}<br>
         Area : ${area}<br>
         Demonym : ${demonym}<br>
-        Symbol : ${symbol}<br>
+        Currency Symbol : ${symbol}<br>
         Currency Code : ${currencyCode}<br>
         Currency Name : ${currencyName}<br>
         Calling Code : +${callingCodes}<br>
