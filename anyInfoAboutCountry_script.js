@@ -42,6 +42,9 @@ searchBtn.addEventListener('click', ()=> {
         let currencyName = data[i].currencies[0].name;
         let callingCodes = data[i].callingCodes[0];
         let shortName = data[i].alpha3Code;
+        let subregion = data[i].subregion;
+        let nativeName = data[i].nativeName;
+        let domain = data[i].topLevelDomain[0];
         
 // The HTML Part to Display on the screen
         html += `<div class="jumbotron" id="${name}">
@@ -52,6 +55,8 @@ searchBtn.addEventListener('click', ()=> {
         <hr class="my-4">
         <p>
         Region : ${region}<br>
+        Sub Region : ${subregion}<br>
+        Native Name : ${nativeName}<br>
         Capital : ${capital}<br>
         Population : ${population}<br>
         Area : ${area}<br>
@@ -60,6 +65,7 @@ searchBtn.addEventListener('click', ()=> {
         Currency Code : ${currencyCode}<br>
         Currency Name : ${currencyName}<br>
         Calling Code : +${callingCodes}<br>
+        Domain : ${domain}<br>
         Short Name: ${shortName}
         </p>
         <a class="btn btn-primary btn-lg" href="http://www.google.com/search?q=${name}" role="button">More About ${name}</a>
@@ -108,6 +114,9 @@ window.addEventListener("keypress", function(e) {
         let currencyName = data[i].currencies[0].name;
         let callingCodes = data[i].callingCodes[0];
         let shortName = data[i].alpha3Code;
+        let subregion = data[i].subregion;
+        let nativeName = data[i].nativeName;
+        let domain = data[i].topLevelDomain[0];
         // The HTML Part to Display on the screen
         html += `<div class="jumbotron" id="${name}">
         <h3>${name}</h3>
@@ -117,6 +126,8 @@ window.addEventListener("keypress", function(e) {
         <hr class="my-4">
         <p>
         Region : ${region}<br>
+        Sub Region : ${subregion}<br>
+        Native Name : ${nativeName}<br>
         Capital : ${capital}<br>
         Population : ${population}<br>
         Area : ${area}<br>
@@ -125,6 +136,7 @@ window.addEventListener("keypress", function(e) {
         Currency Code : ${currencyCode}<br>
         Currency Name : ${currencyName}<br>
         Calling Code : +${callingCodes}<br>
+        Domain : ${domain}<br>
         Short Name: ${shortName}
         </p>
         <a class="btn btn-primary btn-lg" href="http://www.google.com/search?q=${name}" role="button">More About ${name}</a>
