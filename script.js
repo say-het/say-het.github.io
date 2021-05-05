@@ -13,7 +13,7 @@ let projectsList = document.getElementById('projectsList');
       </h2>
     </div>
 
-    <div id="collapseOne" class="collapsed" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
         You can find any Countries' Any information like It's Name,Population,Area,Capital,Calling Code etc..
         <a href='anyInfoAboutCountry_index.html'>Go To Project...</a>
