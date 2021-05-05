@@ -21,6 +21,27 @@ let projectsList = document.getElementById('projectsList');
     </div>
     </div>
 
-    </div>`;
+    </div>
+    <div id="accordion">
+    <div class="card">
+    <div class="card-header" id="headingOne">
+    <h5 class="mb-0">
+    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+  Password Generator
+    </button>
+    </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    <div class="card-body">
+  It can generate the hardest and strongest password (for your security) based on length you enter. 
+     <a href='passwordGenerator_index.html'>Go To Project...</a>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    
+    `;
 projectsList.innerHTML += html;
    
