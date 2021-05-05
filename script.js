@@ -32,7 +32,7 @@ let projectsList = document.getElementById('projectsList');
     </h5>
     </div>
 
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
     <div class="card-body">
   It can generate the hardest and strongest password (for your security) based on length you enter. 
      <a href='passwordGenerator_index.html'>Go To Project...</a>
