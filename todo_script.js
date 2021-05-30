@@ -64,6 +64,11 @@ function deleteToDo(todoValue) {
     localStorage.setItem('todos',todoVals);
     location.reload();
 }
+function deleteAllToDo(){
+    todo.innerHTML = "";
+    todoVals = []
+    localStorage.setItem('todos',todoVals)
+}
 input.addEventListener("keyup", function(event) {
     
     if (event.keyCode === 13) {
