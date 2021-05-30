@@ -10,7 +10,7 @@
   background-image: url('wallpaper_2.jpeg');
   background-repeat: no-repeat;
 }
-    @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   body {
     background-image:url('wallpaper.jpeg');
   }
@@ -25,10 +25,12 @@
     <title>To Do App</title>
 </head>
 
-<body style="background-image: url('wallpaper_2.jpeg');">
+<body>
+    
         <div style="background-color: #00ff00 !important; border-radius: 3px !important;"><h3 class="text-center" style="color: #0004ff;"><b>To Do App</b></h3></div>
+    
     <div class="input-group">
-        <div class="body container mt-1">
+        <div class="body container">
             <div class="input-group">
                 <input type="text" class="form-control" aria-label="Text input with radio button" id="input"><button onclick="getToDoVal();" type="button" class="btn btn-success" id="inputbtn"><i class="fa fa-plus"></i></button>
             </div>
