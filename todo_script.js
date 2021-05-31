@@ -13,7 +13,7 @@ function editTodo(todoId) {
     if (document.getElementById(todoId).firstChild.data == 'Edit') {
         window.m = document.getElementById(`${todoId}d2`).value
         document.getElementById(`${todoId}d2`).disabled = false;
-        
+        document.getElementById(`${todoId}d2`).focus()
         
         document.getElementById(todoId).firstChild.data = 'Save';
     }
@@ -97,9 +97,13 @@ function deleteToDo(todoValue) {
     location.reload();
 }
 function deleteAllToDo(){
-    todo.innerHTML = "";
-    todoVals = []
-    localStorage.setItem('todos',todoVals)
+    let confirmation = confirm('Do You Want To Delete All Tasks')
+    if (confirmation == true) {
+        
+        todo.innerHTML = "";
+        todoVals = []
+        localStorage.setItem('todos',todoVals)
+    }
 }
 input.addEventListener("keyup", function(event) {
     
@@ -110,5 +114,3 @@ input.addEventListener("keyup", function(event) {
       document.getElementById("inputbtn").click();
     }
   }); 
-
-
