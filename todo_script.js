@@ -5,6 +5,38 @@ let todo = document.getElementById('todo');
 let todoVals = [];
 let html = ``;
 
+
+function editTodo(todoId) {
+    let a = localStorage.getItem('todos');
+    
+    
+    if (document.getElementById(todoId).firstChild.data == 'Edit') {
+        window.m = document.getElementById(`${todoId}d2`).value
+        document.getElementById(`${todoId}d2`).disabled = false;
+        
+        
+        document.getElementById(todoId).firstChild.data = 'Save';
+    }
+    
+    else{
+        document.getElementById(`${todoId}d2`).disabled = true;
+        
+        
+        
+        let old = a.indexOf(m)
+        n = document.getElementById(`${todoId}d2`).value
+        document.getElementById(`${todoId}d2`).value = n
+        
+        console.log(n.length,n,old)
+        let b = a.replace(m,n)
+        console.log(b);
+        localStorage.setItem('todos',b)
+        
+        document.getElementById(todoId).firstChild.data = 'Edit';
+    }
+   
+}
+
 window.onload = function() {
     input.focus();
   }
@@ -20,7 +52,7 @@ window.onload = function() {
                 <input class="form-check-input mt-0" type="checkbox" value=""
                         aria-label="Radio button for following text input" id="${todoVals[0][i]}" onClick="deleteToDo(this.id)">
                 </div>
-                <input type="text" class="form-control" aria-label="Text input with radio button" value="${todoVals[0][i]}" disabled>
+                <input type="text" class="form-control" aria-label="Text input with radio button" value="${todoVals[0][i]}" id="${todoVals[0][i]}id2" disabled><button type="button" id="${todoVals[0][i]}i" class="btn btn-primary" onClick="editTodo(this.id)">Edit</button>
             </div>
             </div>`;  
             todo.innerHTML += html;
