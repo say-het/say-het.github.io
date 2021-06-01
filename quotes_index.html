@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Daily Quotes App</title>
+  </head>
+  <body>
+      <div class="container">
+          <h1 class="text-center">Daily Quotes App</h1>
+        <button class="btn btn-primary pull-right" style="position: fixed;
+        top: 0;
+        right: 0;" onclick="logout();">Log Out</button>
+      </div>
+    <div class="container">
+    <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name" id="fn" aria-label="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name" id="ln" aria-label="Last name">
+        </div>
+      </div>
+      <div class="container text-center" id="bt">
+      <button class="btn btn-primary mt-2" style="margin: auto; display: block;" id="btn" onclick="register();">Register</button>
+    </div>
+    </div>
+    <div class="container" id="confirm">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    
+  </body>
+  <script src="quotes_script.js"></script>
+</html>
