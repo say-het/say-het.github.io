@@ -45,7 +45,7 @@ let projectsList = document.getElementById('projectsList');
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-        You can write down your pending task and edit it delete it after it's completed and even delete the all tasks<a href='todo_index.html'>Go To Project...</a>
+        You can write down your pending task and edit it delete it after it's completed and even delete the all tasks. <a href='todo_index.html'>Go To Project...</a>
 </div>
     </div>
   </div>
