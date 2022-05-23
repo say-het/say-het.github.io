@@ -1,6 +1,6 @@
 // Blank string to add later
 let html = ``;
-console.log("no error")
+//console.log("no error")
 // html search Button
 let searchBtn = document.getElementById('searchBtn');
 
@@ -44,7 +44,13 @@ searchBtn.addEventListener('click', ()=> {
         let shortName = data[i].alpha3Code;
         let subregion = data[i].subregion;
         let nativeName = data[i].nativeName;
-        let domain = data[i].topLevelDomain[0];
+        let domain = data[i].topLevelDomain[0]
+     
+   
+            let mainLanguage = data[i].languages[0].name
+            
+            //console.log(mainLanguage)
+   
         
 // The HTML Part to Display on the screen
         html += `<div class="jumbotron" id="${name}">
@@ -59,6 +65,7 @@ searchBtn.addEventListener('click', ()=> {
         Native Name : ${nativeName}<br>
         Capital : ${capital}<br>
         Population : ${population}<br>
+        Main Language : ${mainLanguage} <br>
         Area : ${area}<br>
         Demonym : ${demonym}<br>
         Currency Symbol : ${symbol}<br>
@@ -117,8 +124,9 @@ window.addEventListener("keypress", function(e) {
         let subregion = data[i].subregion;
         let nativeName = data[i].nativeName;
         let domain = data[i].topLevelDomain[0];
+let mainLanguage = data[i].languages[0].name
         // The HTML Part to Display on the screen
-        html += `<div class="jumbotron" id="${name}">
+        html += `<div class="jumbotron" class="center" id="${name}">
         <h3>${name}</h3>
         <p class="lead">
         <img width="200" height="121" src="${flag}" alt="${name}" />
@@ -130,6 +138,7 @@ window.addEventListener("keypress", function(e) {
         Native Name : ${nativeName}<br>
         Capital : ${capital}<br>
         Population : ${population}<br>
+        Main Language : ${mainLanguage} <br>
         Area : ${area}<br>
         Demonym : ${demonym}<br>
         Currency Symbol : ${symbol}<br>
