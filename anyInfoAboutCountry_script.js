@@ -1,6 +1,6 @@
 // Blank string to add later
 let html = ``;
-console.log("no error")
+//console.log("no error")
 // html search Button
 let searchBtn = document.getElementById('searchBtn');
 
@@ -14,10 +14,10 @@ let infoContainer = document.getElementById('infoContainer');
 searchBtn.addEventListener('click', ()=> {
   let search = searchBox.value;
   if (search != "" && search != " ") {
-    
+    //console.log("no error")
     // Api Fetching(For Search)
-    fetch(`https://restcountries.eu/rest/v2/name/${search}`).then(response => response.json()).then((data) => {
-      // console.log(data)
+    fetch(`https://restcountries.com/v2/name/${search}`).then(response => response.json()).then((data) => {
+      console.log(data)
       if (data.status == 404) {
         let errorHeading = document.getElementById('errorHeading');
         errorHeading.innerHTML = `New Search Items Listed Here<br>
