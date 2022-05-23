@@ -90,7 +90,7 @@ window.addEventListener("keypress", function(e) {
     let search = searchBox.value;
     
     // Api Fetching(For Search)
-    fetch(`https://restcountries.eu/rest/v2/name/${search}`).then(response => response.json()).then((data) => {
+    fetch(`https://restcountries.com/v2/name/${search}`).then(response => response.json()).then((data) => {
        if (data.status == 404) {
         let errorHeading = document.getElementById('errorHeading');
         errorHeading.innerHTML = `New Search Items Listed Here<br>
