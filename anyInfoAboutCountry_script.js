@@ -1,6 +1,6 @@
 // Blank string to add later
 let html = ``;
-
+console.log("no error")
 // html search Button
 let searchBtn = document.getElementById('searchBtn');
 
