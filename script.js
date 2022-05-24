@@ -16,7 +16,7 @@ let projectsList = document.getElementById('projectsList');
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
         You can find any Countries' Any information like It's Name,Population,Area,Capital,Calling Code etc..
-        <a href='anyInfoAboutCountry_index.html'>Go To Project...</a>
+        <a href='anyInfoAboutCountries_index.html'>Go To Project...</a>
       </div>
     </div>
   </div>
