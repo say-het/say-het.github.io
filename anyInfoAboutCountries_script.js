@@ -78,6 +78,7 @@ searchBtn.addEventListener('click', ()=> {
         Short Name: ${shortName}
         </p>
         <a class="btn btn-primary btn-lg" href="http://www.google.com/search?q=${name}" role="button">More About ${name}</a>
+ <a class="btn btn-primary btn-lg" href="https://en.m.wikipedia.org/wiki/${name}" role="button">Wikipedia</a>
         </div>`;
         // Displaying Html
         console.log(html)
