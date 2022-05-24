@@ -12,6 +12,7 @@ let infoContainer = document.getElementById('infoContainer');
 
 // When Anyone clicks on Search Button Below code will execute
 searchBtn.addEventListener('click', ()=> {
+  infoContainer.innerHTML = ""
   let search = searchBox.value;
   if (search != "" && search != " ") {
     //console.log("no error")
@@ -29,6 +30,7 @@ searchBtn.addEventListener('click', ()=> {
         errorHeading.innerHTML = `New Search Items Listed Here`
       // If There is many Countries so for that This is For Loop
         console.log("no error")
+        html = ''
       for (i in data) {
         let name = data[i].name;
         let region = data[i].region;
@@ -78,6 +80,7 @@ searchBtn.addEventListener('click', ()=> {
         <a class="btn btn-primary btn-lg" href="http://www.google.com/search?q=${name}" role="button">More About ${name}</a>
         </div>`;
         // Displaying Html
+        console.log(html)
         infoContainer.innerHTML = html
       }
       }
@@ -108,6 +111,7 @@ window.addEventListener("keypress", function(e) {
         let errorHeading = document.getElementById('errorHeading');
         errorHeading.innerHTML = `New Search Items Listed Here`
        // If There is many Countries so for that This is For Loop
+html = ''
       for (i in data) {
         let name = data[i].name;
         let region = data[i].region;
