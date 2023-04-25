@@ -10,6 +10,8 @@ let searchBox = document.getElementById('searchBox');
 // Container to display results
 let infoContainer = document.getElementById('infoContainer');
 
+window.onload = ()=>{searchBox.focus()}
+
 // When Anyone clicks on Search Button Below code will execute
 searchBtn.addEventListener('click', ()=> {
   infoContainer.innerHTML = ""
