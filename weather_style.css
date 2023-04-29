@@ -1,0 +1,37 @@
+* {
+  outline: none !important;
+}
+
+#header {
+  border-width: medium;
+  border-radius: 31px;
+  border-style: solid;
+  margin-top: 27px;
+}
+
+#searchBox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 79%;
+  display: inline-block;
+  margin-right: 1%;
+}
+
+#searchBtn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 19%;
+  display: inline-block;
+  margin-left: 1%;
+}
+
+#cf {
+  position: absolute;
+  top: 34px;
+  right: 101px;
+}
+
+.main {
+  margin: auto;
+  display: block;
+}
