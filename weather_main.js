@@ -28,7 +28,7 @@ searchBtn.addEventListener('click', () => {
     if (searchValue != "" && searchValue != " ") {
 
         // fetching api
-        fetch(`http://api.weatherapi.com/v1/current.json?key=0038ac0e2e154ab6a8681741232104&q=${searchValue}`).then(response => response.json()).then((data) => {
+        fetch(`https://api.weatherapi.com/v1/current.json?key=0038ac0e2e154ab6a8681741232104&q=${searchValue}`).then(response => response.json()).then((data) => {
 
             // if there's key-value pair named error in data so it will show that search is inappropriate
             if ('error' in data) {
@@ -94,7 +94,7 @@ window.addEventListener('keypress', (e) => {
         if (searchValue != "" && searchValue != " ") {
 
             // fetching api
-            fetch(`http://api.weatherapi.com/v1/current.json?key=0038ac0e2e154ab6a8681741232104&q=${searchValue}`).then(response => response.json()).then((data) => {
+            fetch(`https://api.weatherapi.com/v1/current.json?key=0038ac0e2e154ab6a8681741232104&q=${searchValue}`).then(response => response.json()).then((data) => {
 
                 // if there's key-value pair named error in data so it will show that search is inappropriate
                 if ('error' in data) {
