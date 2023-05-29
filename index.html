@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Het Modi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        outline: none;
+      }
+      body {
+        background-color: rgb(0, 0, 33);
+        font-family: "Josefin Sans", sans-serif;
+        color: white;
+      }
+      nav {
+        background-color: rgb(0, 20, 50);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+      nav ul li a{
+        text-decoration: none;
+        color: white;
+      }
+      nav ul li a:hover{
+        color: crimson;
+        font-size: 1.05rem;
+      }
+      .left {
+        font-size: 1.8rem;
+      }
+      .firstSection {
+        margin: 23px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      /* .firstSection > div{
+        width: 30%;
+      } */
+      .rightSection img {
+        width: 80%;
+      }
+      .leftSection {
+        font-size: 3rem;
+        margin: 55px;
+      }
+      .purple {
+        color: rgb(214, 1, 214);
+      }
+      #element{
+        color: rgb(214, 1, 214) ;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left">Het Modi</div>
+        <div class="right">
+          <ul>
+            <li><a href="/">Home</a></li> 
+            <li><a href="/">About</a></li> 
+            <li><a href="/">Services</a></li> 
+            <li><a href="/">Projects</a></li> 
+            <li><a href="/">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="firstSection">
+        <div class="leftSection">
+          Hii, My Name is <span class="purple">Het</span> and
+          <div>
+            I am a Passionate
+            <div class="job">  <span id="element"></span></div>
+          </div>
+        </div>
+        <div class="rightSection">
+          <img src="./Images/portfolio-png.png" alt="" />
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed('#element', {
+        strings: ['Web Developer','Web Designer','Mobile App Developer','CS Student'],
+        typeSpeed: 100,
+        shuffle: true,
+        loop: true,
+        smartBackspace: true
+      });
+    </script>
+  </body>
+</html>
