@@ -11,6 +11,12 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,600&display=swap"
       rel="stylesheet"
     />
+     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <style>
       * {
         outline: none;
@@ -51,9 +57,7 @@
         justify-content: space-around;
         align-items: center;
       }
-      /* .firstSection > div{
-        width: 30%;
-      } */
+      
       .rightSection img {
         width: 80%;
       }
@@ -67,6 +71,43 @@
       #element{
         color: rgb(214, 1, 214) ;
       }
+       #project1,#project2{
+        transition: 0.5s;
+
+      }
+          #project1:hover,
+      #project2:hover {
+        transition: 0.5s;
+        width: 50%;
+      }
+         .project {
+        width: 40%;
+        /* color: black; */
+        display: inline-block;
+        /* background-color: linear-gradient(); */
+        background: linear-gradient(#3519af, #af2424) padding-box,
+          linear-gradient(45deg, slateblue, coral) border-box;
+      }
+           .projectsSection {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2.5%;
+        margin-right: 8%;
+        margin-left: 8%;
+      }
+         .secondSection {
+        margin-top: 25px;
+        margin-left: 9%;
+        font-size: 1.9rem;
+      }
+      .secondSection a {
+        text-decoration: none;
+        color: white;
+      }
+      .secondSection a:hover {
+        color: crimson;
+      }
+      
     </style>
   </head>
   <body>
@@ -98,6 +139,42 @@
           <img src="./Images/portfolio-png.png" alt="" />
         </div>
       </section>
+       <div class="secondSection">
+        <a href="/">Projects</a>
+      </div>
+      <section class="projectsSection">
+        <div class="card project" id="project1">
+          <img
+            class="card-img-top"
+            src="./Images/Project1.png"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+
+        <div class="card project" id="project2">
+          <img
+            class="card-img-top"
+            src="./Images/Project2.png"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
@@ -109,5 +186,20 @@
         smartBackspace: true
       });
     </script>
+        <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
