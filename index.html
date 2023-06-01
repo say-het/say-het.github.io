@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,600&display=swap"
       rel="stylesheet"
     />
-     <link
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -31,6 +31,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        padding-top: 0.9%;
       }
       nav ul {
         display: flex;
@@ -44,7 +45,7 @@
         text-decoration: none;
         color: white;
       }
-      nav ul li a:hover{
+      nav ul li a:hover {
         color: crimson;
         font-size: 1.05rem;
       }
@@ -57,7 +58,9 @@
         justify-content: space-around;
         align-items: center;
       }
-      
+      /* .firstSection > div{
+        width: 30%;
+      } */
       .rightSection img {
         width: 80%;
       }
@@ -68,34 +71,10 @@
       .purple {
         color: rgb(214, 1, 214);
       }
-      #element{
-        color: rgb(214, 1, 214) ;
+      #element {
+        color: rgb(214, 1, 214);
       }
-       #project1,#project2{
-        transition: 0.5s;
-
-      }
-          #project1:hover,
-      #project2:hover {
-        transition: 0.5s;
-        width: 50%;
-      }
-         .project {
-        width: 40%;
-        /* color: black; */
-        display: inline-block;
-        /* background-color: linear-gradient(); */
-        background: linear-gradient(#3519af, #af2424) padding-box,
-          linear-gradient(45deg, slateblue, coral) border-box;
-      }
-           .projectsSection {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 2.5%;
-        margin-right: 8%;
-        margin-left: 8%;
-      }
-         .secondSection {
+      .secondSection {
         margin-top: 25px;
         margin-left: 9%;
         font-size: 1.9rem;
@@ -107,7 +86,35 @@
       .secondSection a:hover {
         color: crimson;
       }
-      
+      .projectsSection {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2.5%;
+        margin-right: 8%;
+        margin-left: 8%;
+      }
+      #project1,#project2{
+        transition: 0.5s;
+
+      }
+      #project1:hover,
+      #project2:hover {
+        transition: 0.5s;
+        width: 50%;
+      }
+      /* #project1:hover::after,
+      #project2:hover::after {
+        transition: 0.7s;
+        width: 20%; */
+      /* } */
+      .project {
+        width: 40%;
+        /* color: black; */
+        display: inline-block;
+        /* background-color: linear-gradient(); */
+        background: linear-gradient(#3519af, #af2424) padding-box,
+          linear-gradient(45deg, slateblue, coral) border-box;
+      }
     </style>
   </head>
   <body>
@@ -116,11 +123,11 @@
         <div class="left">Het Modi</div>
         <div class="right">
           <ul>
-            <li><a href="/">Home</a></li> 
-            <li><a href="/">About</a></li> 
-            <li><a href="/">Services</a></li> 
-            <li><a href="/">Projects</a></li> 
-            <li><a href="/">Contact Me</a></li>
+            <li><a style="text-decoration: none;" href="/">Home</a></li>
+            <li><a style="text-decoration: none;" href="/">About</a></li>
+            <li><a style="text-decoration: none;" href="/">Services</a></li>
+            <li><a style="text-decoration: none;" href="/">Projects</a></li>
+            <li><a style="text-decoration: none;" href="/">Contact Me</a></li>
           </ul>
         </div>
       </nav>
@@ -132,14 +139,14 @@
           Hii, My Name is <span class="purple">Het</span> and
           <div>
             I am a Passionate
-            <div class="job">  <span id="element"></span></div>
+            <div class="job"><span id="element"></span></div>
           </div>
         </div>
         <div class="rightSection">
           <img src="./Images/portfolio-png.png" alt="" />
         </div>
       </section>
-       <div class="secondSection">
+      <div class="secondSection">
         <a href="/">Projects</a>
       </div>
       <section class="projectsSection">
@@ -178,15 +185,20 @@
     </main>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
-      var typed = new Typed('#element', {
-        strings: ['Web Developer','Web Designer','Mobile App Developer','CS Student'],
+      var typed = new Typed("#element", {
+        strings: [
+          "Web Developer",
+          "Web Designer",
+          "Mobile App Developer",
+          "CS Student",
+        ],
         typeSpeed: 100,
         shuffle: true,
         loop: true,
-        smartBackspace: true
+        smartBackspace: true,
       });
     </script>
-        <script
+    <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
