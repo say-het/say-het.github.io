@@ -86,19 +86,24 @@
       .secondSection a:hover {
         color: burlywood;
       }
-      .projectsSection {
+      .projectsSection, .firstRow, .secondRow {
         display: flex;
         justify-content: space-around;
         margin-top: 2.5%;
         margin-right: 8%;
         margin-left: 8%;
       }
-      #project1,#project2{
+      #project1,#project2,#project3,#project4{
         transition: 0.5s;
-
+      }
+      .projectsSection{
+        display: flex;
+   flex-direction: column;
       }
       #project1:hover,
-      #project2:hover {
+      #project2:hover,
+      #project3:hover,
+      #project4:hover {
         transition: 0.5s;
         width: 50%;
       }
@@ -150,6 +155,7 @@
         <a href="/">Projects</a>
       </div>
       <section class="projectsSection">
+        <div class="firstRow">
         <div class="card project" id="project1">
           <img
             class="card-img-top"
@@ -157,12 +163,11 @@
             alt="Card image cap"
           />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">To Do App</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              A quick to do app for all your needs including adding, deleting and editing tasks.
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="https://say-het.github.io/todo_index.html" class="btn btn-primary">Go to project</a>
           </div>
         </div>
 
@@ -173,14 +178,43 @@
             alt="Card image cap"
           />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Any Countries' Any Information</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              You can find any Countries' Any information like It's Name,Population,Area,Capital,Calling Code etc..
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-primary">Go to project</a>
           </div>
         </div>
+      </div>
+      <div class="secondRow">
+        <div class="card project" id="project3">
+          <img
+            class="card-img-top"
+            src="./Images/Project3.png"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Password Generator</h5>
+            <p class="card-text">
+              It can generate the hardest and strongest password (for your security) based on length you enter.            </p>
+            <a href="https://say-het.github.io/passwordGenerator_index.html" class="btn btn-primary">Go to project</a>
+          </div>
+        </div>
+        <div class="card project" id="project4">
+          <img
+            class="card-img-top"
+            src="./Images/Project4.png"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Personal Adviser</h5>
+            <p class="card-text">
+              You can get any random advise or quote or you can even search the topic you need advise for.
+            </p>
+            <a href="https://say-het.github.io/personalAdvicer_index.html" class="btn btn-primary">Go to project</a>
+          </div>
+        </div>
+      </div>
       </section>
     </main>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
