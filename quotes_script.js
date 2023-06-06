@@ -45,7 +45,7 @@ const register = () => {
                     const greeting = new Notification(data.quote);
                 })
                 console.log(date.getMinutes())
-            }, 10000);
+            }, 300000);
         }
     }
 }
