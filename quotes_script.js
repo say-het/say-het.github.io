@@ -34,7 +34,7 @@ const register = () => {
             bt.innerHTML = html
             localStorage.setItem('name', name);
             let nm = localStorage.getItem('name');
-            confirm.innerHTML = `<h4 class="text-center">Hi ${nm}, you are succesfully registered, you wll be getting notifiation for your daily quotes at every 10 minutes</h4>`
+            confirm.innerHTML = `<h4 class="text-center">Hi ${nm}, you are succesfully registered, you wll be getting notifiation for your daily quotes at every 5 minutes</h4>`
             localStorage.setItem('register', true)
             fn.value = ``
             ln.value = ``;
