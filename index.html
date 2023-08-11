@@ -1,167 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Het Modi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <style>
-      * {
-        outline: none;
-      }
-      body {
-        background-color: rgb(0, 0, 33);
-        font-family: "Josefin Sans", sans-serif;
-        color: white;
-      }
-      nav {
-        background-color: rgb(0, 20, 50);
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding-top: 0.9%;
-      }
-      nav ul {
-        display: flex;
-        justify-content: center;
-      }
-      nav ul li {
-        list-style: none;
-        margin: 0 23px;
-      }
-      nav ul li a{
-        text-decoration: none;
-        color: white;
-      }
-      nav ul li a:hover {
-        color: burlywood;
-        font-size: 1.05rem;
-      }
-      .left {
-        font-size: 1.8rem;
-      }
-      .firstSection {
-        margin: 23px 0;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-      }
-      /* .firstSection > div{
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Het Modi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <style>
+    * {
+      outline: none;
+    }
+
+    body {
+      background-color: rgb(0, 0, 33);
+      font-family: "Josefin Sans", sans-serif;
+      color: white;
+    }
+
+    nav {
+      background-color: rgb(0, 20, 50);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-top: 0.9%;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      list-style: none;
+      margin: 0 23px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    nav ul li a:hover {
+      color: burlywood;
+      font-size: 1.05rem;
+    }
+
+    .left {
+      font-size: 1.8rem;
+    }
+
+    .firstSection {
+      margin: 23px 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    /* .firstSection > div{
         width: 30%;
       } */
-      .rightSection img {
-        width: 80%;
-      }
-      .leftSection {
-        font-size: 3rem;
-        margin: 55px;
-      }
-      .purple {
-        color: rgb(214, 1, 214);
-      }
-      #element {
-        color: rgb(214, 1, 214);
-      }
-      .secondSection {
-        margin-top: 25px;
-        margin-left: 9%;
-        font-size: 1.9rem;
-      }
-      .secondSection a {
-        text-decoration: none;
-        color: white;
-      }
-      .secondSection a:hover {
-        color: burlywood;
-      }
-      .projectsSection, .firstRow, .secondRow {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 2.5%;
-        margin-right: 8%;
-        margin-left: 8%;
-      }
-      #project1,#project2,#project3,#project4{
-        transition: 0.5s;
-      }
-      .projectsSection{
-        display: flex;
-   flex-direction: column;
-      }
-      #project1:hover,
-      #project2:hover,
-      #project3:hover,
-      #project4:hover {
-        transition: 0.5s;
-        width: 50%;
-      }
-      /* #project1:hover::after,
+    .rightSection img {
+      width: 80%;
+    }
+
+    .leftSection {
+      font-size: 3rem;
+      margin: 55px;
+    }
+
+    .purple {
+      color: rgb(214, 1, 214);
+    }
+
+    #element {
+      color: rgb(214, 1, 214);
+    }
+
+    .secondSection {
+      margin-top: 25px;
+      margin-left: 9%;
+      font-size: 1.9rem;
+    }
+
+    .secondSection a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .secondSection a:hover {
+      color: burlywood;
+    }
+
+    .projectsSection,
+    .firstRow,
+    .secondRow {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2.5%;
+      margin-right: 8%;
+      margin-left: 8%;
+    }
+
+    #project1,
+    #project2,
+    #project3,
+    #project4 {
+      transition: 0.5s;
+    }
+
+    .projectsSection {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #project1:hover,
+    #project2:hover,
+    #project3:hover,
+    #project4:hover {
+      transition: 0.5s;
+      width: 50%;
+    }
+
+    /* #project1:hover::after,
       #project2:hover::after {
         transition: 0.7s;
         width: 20%; */
-      /* } */
-      .project {
-        width: 40%;
-        /* color: black; */
-        display: inline-block;
-        /* background-color: linear-gradient(); */
-        background: linear-gradient(#3519af, #af2424) padding-box,
-          linear-gradient(45deg, slateblue, coral) border-box;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav id="home">
-        <div class="left">Het Modi</div>
-        <div class="right">
-          <ul>
-            <li><a style="text-decoration: none;" href="#home">Home</a></li>
-            <li><a style="text-decoration: none;" href="/">About</a></li>
-            <li><a style="text-decoration: none;" href="/">Services</a></li>
-            <li><a style="text-decoration: none;" href="#project1">Projects</a></li>
-            <li><a style="text-decoration: none;" href="/">Contact Me</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    /* } */
+    .project {
+      width: 40%;
+      /* color: black; */
+      display: inline-block;
+      /* background-color: linear-gradient(); */
+      background: linear-gradient(#3519af, #af2424) padding-box,
+        linear-gradient(45deg, slateblue, coral) border-box;
+    }
+  </style>
+</head>
 
-    <main>
-      <section class="firstSection">
-        <div class="leftSection">
-          Hii, My Name is <span class="purple">Het</span> and
-          <div>
-            I am a Passionate
-            <div class="job"><span id="element"></span></div>
-          </div>
-        </div>
-        <div class="rightSection">
-          <img src="./Images/portfolio-png.png" alt="" />
-        </div>
-      </section>
-      <div class="secondSection">
-        <a href="/">Projects</a>
+<body>
+  <header>
+    <nav id="home">
+      <img src="" alt="">
+      <div class="left">Het Modi</div>
+      <div class="right">
+        <ul>
+          <li><a style="text-decoration: none;" href="#home">Home</a></li>
+          <li><a style="text-decoration: none;" href="/">About</a></li>
+          <li><a style="text-decoration: none;" href="/">Services</a></li>
+          <li><a style="text-decoration: none;" href="#project1">Projects</a></li>
+          <li><a style="text-decoration: none;" href="/">Contact Me</a></li>
+        </ul>
       </div>
-      <section class="projectsSection">
-        <div class="firstRow">
+    </nav>
+  </header>
+
+  <main>
+    <section class="firstSection">
+      <div class="leftSection">
+        Hii, My Name is <span class="purple">Het</span> and
+        <div>
+          I am a Passionate
+          <div class="job"><span id="element"></span></div>
+        </div>
+      </div>
+      <div class="rightSection">
+        <img src="./Images/portfolio-png.png" alt="" />
+      </div>
+    </section>
+    <div class="secondSection">
+      <a href="/">Projects</a>
+    </div>
+    <section class="projectsSection">
+      <div class="firstRow">
         <div class="card project" id="project1">
-          <img
-            class="card-img-top"
-            src="./Images/Project1.png"
-            alt="Card image cap"
-          />
+          <img class="card-img-top" src="./Images/Project1.png" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title">To Do App</h5>
             <p class="card-text">
@@ -172,11 +190,7 @@
         </div>
 
         <div class="card project" id="project2">
-          <img
-            class="card-img-top"
-            src="./Images/Project2.png"
-            alt="Card image cap"
-          />
+          <img class="card-img-top" src="./Images/Project2.png" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title">Any Countries' Any Information</h5>
             <p class="card-text">
@@ -188,24 +202,16 @@
       </div>
       <div class="secondRow">
         <div class="card project" id="project3">
-          <img
-            class="card-img-top"
-            src="./Images/Project3.png"
-            alt="Card image cap"
-          />
+          <img class="card-img-top" src="./Images/Project3.png" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title">Password Generator</h5>
             <p class="card-text">
-              It can generate the hardest and strongest password (for your security) based on length you enter.            </p>
+              It can generate the hardest and strongest password (for your security) based on length you enter. </p>
             <a href="https://say-het.github.io/passwordGenerator_index.html" class="btn btn-primary">Go to project</a>
           </div>
         </div>
         <div class="card project" id="project4">
-          <img
-            class="card-img-top"
-            src="./Images/Project4.png"
-            alt="Card image cap"
-          />
+          <img class="card-img-top" src="./Images/Project4.png" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title">Personal Adviser</h5>
             <p class="card-text">
@@ -215,37 +221,55 @@
           </div>
         </div>
       </div>
-      </section>
-    </main>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script>
-      var typed = new Typed("#element", {
-        strings: [
-          "Web Developer",
-          "Web Designer",
-          "Mobile App Developer",
-          "CS Student",
-        ],
-        typeSpeed: 100,
-        shuffle: true,
-        loop: true,
-        smartBackspace: true,
-      });
-    </script>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    </section>
+  </main>
+  <footer>
+    <div class="secondSection"> Contact Me</div>
+    <br>
+    <div>
+      <center>Instagram - <a style=" text-decoration: none;
+       color: burlywood;>
+;" href="https://instagram.com/a.student.programmer">a.student.programmer</a></center>
+    </div>
+    <div>
+      <center>LinkedIn - <a style=" text-decoration: none;
+       color: burlywood;>
+;" href="https://www.linkedin.com/in/het-modi-603728286">say-het</a></center>
+    </div>
+    <div>
+      <center>Snapchat - <a style=" text-decoration: none;
+       color: burlywood;"
+ href="https://www.snapchat.com/add/het_here">het_here</a></center>
+    </div>
+    <div>
+      <center>WhatsApp - <a style=" text-decoration: none;
+       color: burlywood;" href="https://wa.me/+919484985185">Het Modi</a></center>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed("#element", {
+      strings: [
+        "Web Developer",
+        "Web Designer",
+        "Mobile App Developer",
+        "CS Student",
+      ],
+      typeSpeed: 100,
+      shuffle: true,
+      loop: true,
+      smartBackspace: true,
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
