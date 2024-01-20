@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Het Modi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <script src="script.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,600&display=swap"
     rel="stylesheet" />
@@ -14,7 +15,8 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   <style>
     * {
-      outline: none;
+      outline: none !important;
+      
     }
 
     body {
@@ -62,9 +64,7 @@
       align-items: center;
     }
 
-    /* .firstSection > div{
-        width: 30%;
-      } */
+ 
     .rightSection img {
       width: 80%;
     }
@@ -111,34 +111,70 @@
     #project2,
     #project3,
     #project4 {
+      margin: 0 5px 0 5px;
       transition: 0.5s;
+      /* opacity: 0.99; */
+      /* backdrop-filter: blur(10px); */
+      
+      
     }
-
+    html {
+  scroll-behavior: smooth;
+}
+.test{
+  backdrop-filter: blur(10px);
+}
     .projectsSection {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
     }
 
-    #project1:hover,
-    #project2:hover,
-    #project3:hover,
-    #project4:hover {
-      transition: 0.5s;
-      width: 50%;
-    }
+
+.project-hovered {
+  width: 50%;
+  -webkit-transform: scale(1.33);
+  transform: scale(1.33);
+  transform-origin: 90% 30%;
+  filter: blur(0) !important;
+  /* background-size: cover; */
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+main {
+  transition: filter 0.5s;
+}
+ .projectsSection{
+  transition: all 0.5s;
+ }
 
     /* #project1:hover::after,
       #project2:hover::after {
         transition: 0.7s;
         width: 20%; */
     /* } */
+    .projectsSection img{
+      /* width:  300px; */
+    height: 200px;
+    object-fit: cover;
+    border: 0px solid black;border-radius: 10px;
+    }
+    .projectsSection a{
+      text-decoration: none;
+      color: white;
+    }
     .project {
       width: 40%;
       /* color: black; */
       display: inline-block;
       /* background-color: linear-gradient(); */
-      background: linear-gradient(#3519af, #af2424) padding-box,
-        linear-gradient(45deg, slateblue, coral) border-box;
+      /* background: linear-gradient(#3519af, #af2424) padding-box,
+        linear-gradient(45deg, slateblue, coral) border-box; */
+        background: linear-gradient(135deg, #2d3a8e, #b33771) padding-box,
+            linear-gradient(45deg, #fc7b47, #4caf50) border-box;
+
     }
   </style>
 </head>
@@ -153,7 +189,7 @@
           <li><a style="text-decoration: none;" href="#home">Home</a></li>
           <li><a style="text-decoration: none;" href="/">About</a></li>
           <li><a style="text-decoration: none;" href="/">Services</a></li>
-          <li><a style="text-decoration: none;" href="#project1">Projects</a></li>
+          <li><a style="text-decoration: none;" href="#secondSection">Projects</a></li>
           <li><a style="text-decoration: none;" href="/">Contact Me</a></li>
         </ul>
       </div>
@@ -173,53 +209,59 @@
         <img src="./Images/portfolio-png.png" alt="" />
       </div>
     </section>
-    <div class="secondSection">
+    <div class="secondSection" id="secondSection">
       <a href="/">Projects</a>
     </div>
     <section class="projectsSection">
-      <div class="firstRow">
-        <div class="card project" id="project1">
-          <img class="card-img-top" src="./Images/Project1.png" alt="Card image cap" />
-          <div class="card-body">
+     <a href="https://say-het.github.io/todo_index.html">
+
+    
+       <div class="card project" id="project1" style="border: 0px solid black;border-radius: 20px;">
+         <img class="card-img-top" src="./Images/Project1.png" alt="Card image cap" />
+         <div class="card-body">
             <h5 class="card-title">To Do App</h5>
             <p class="card-text">
               A quick to do app for all your needs including adding, deleting and editing tasks.
             </p>
-            <a href="https://say-het.github.io/todo_index.html" class="btn btn-primary">Go to project</a>
+            <!-- <a href="https://say-het.github.io/todo_index.html" class="btn btn-primary">Go to project</a> -->
           </div>
+        </a>
         </div>
 
-        <div class="card project" id="project2">
-          <img class="card-img-top" src="./Images/Project2.png" alt="Card image cap" />
-          <div class="card-body">
-            <h5 class="card-title">Any Countries' Any Information</h5>
+        <div class="card project" style="border: 0px solid black;border-radius: 20px;" id="project2">
+          <a href="/anyInfoAboutCountries_index.html">
+
+            <img class="card-img-top" src="./Images/Project2.png" alt="Card image cap" />
+            <div class="card-body">
+              <h5 class="card-title">Any Countries' Any Information</h5>
             <p class="card-text">
               You can find any Countries' Any information like It's Name,Population,Area,Capital,Calling Code etc..
             </p>
-            <a href="/anyInfoAboutCountries_index.html" class="btn btn-primary">Go to project</a>
           </div>
-        </div>
+        </a>
       </div>
-      <div class="secondRow">
-        <div class="card project" id="project3">
-          <img class="card-img-top" src="./Images/Project3.png" alt="Card image cap" />
-          <div class="card-body">
-            <h5 class="card-title">Password Generator</h5>
+        <div class="card project" id="project3" style="border: 0px solid black;border-radius: 20px;">
+          <a href="https://say-het.github.io/passwordGenerator_index.html">
+
+            <img class="card-img-top" src="./Images/Project3.png" alt="Card image cap" />
+            <div class="card-body">
+              <h5 class="card-title">Password Generator</h5>
             <p class="card-text">
               It can generate the hardest and strongest password (for your security) based on length you enter. </p>
-            <a href="https://say-het.github.io/passwordGenerator_index.html" class="btn btn-primary">Go to project</a>
-          </div>
+            </div>
+          </a>
         </div>
-        <div class="card project" id="project4">
-          <img class="card-img-top" src="./Images/Project4.png" alt="Card image cap" />
-          <div class="card-body">
-            <h5 class="card-title">Personal Adviser</h5>
-            <p class="card-text">
-              You can get any random advise or quote or you can even search the topic you need advise for.
-            </p>
-            <a href="https://say-het.github.io/personalAdvicer_index.html" class="btn btn-primary">Go to project</a>
-          </div>
-        </div>
+        <div class="card project" id="project4" style="border: 0px solid black;border-radius: 20px;">
+          <a href="https://say-het.github.io/personalAdvicer_index.html">
+
+            <img class="card-img-top" src="./Images/Project4.png" alt="Card image cap" />
+            <div class="card-body">
+              <h5 class="card-title">Personal Adviser</h5>
+              <p class="card-text">
+                You can get any random advise or quote or you can even search the topic you need advise for.
+              </p>
+            </div>
+          </a>
       </div>
     </section>
   </main>
@@ -228,13 +270,12 @@
     <br>
     <div>
       <center>Instagram - <a style=" text-decoration: none;
-       color: burlywood;>
-;" href="https://instagram.com/a.student.programmer">a.student.programmer</a></center>
+       color: burlywood;"
+ href="https://instagram.com/a.student.programmer">a.student.programmer</a></center>
     </div>
     <div>
       <center>LinkedIn - <a style=" text-decoration: none;
-       color: burlywood;>
-;" href="https://www.linkedin.com/in/het-modi-603728286">say-het</a></center>
+       color: burlywood" href="https://www.linkedin.com/in/het-modi-603728286">say-het</a></center>
     </div>
     <div>
       <center>Snapchat - <a style=" text-decoration: none;
