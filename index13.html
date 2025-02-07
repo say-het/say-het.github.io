@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Auction</title>
+    <style>
+        /* Base styles for better visual hierarchy and readability */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Main layout with grid for responsive design */
+        .main-container {
+            display: grid;
+            grid-template-columns: minmax(300px, 2fr) 3fr;
+            gap: 30px;
+            max-width: 1600px;
+            margin: 0 auto;
+            height: calc(100vh - 40px);
+        }
+
+        /* Left section styling with clean shadows and gradients */
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .wheel-section {
+            background: linear-gradient(145deg, #1a1a1a, #232323);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Enhanced wheel styling for better visual appeal */
+        .wheel-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 20px auto;
+        }
+
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 6px solid #6200ea;
+            transition: transform 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            background: linear-gradient(145deg, #2a2a2a, #333333);
+            box-shadow: 0 0 30px rgba(98, 0, 234, 0.2);
+        }
+
+        .wheel-segment {
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            transform-origin: 100% 50%;
+            left: 0;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            padding-left: 25px;
+            color: #fff;
+            font-size: 20px;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Selected set styling with subtle animation */
+        .selected-set {
+            background: linear-gradient(145deg, #1a1a1a, #232323);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .selected-set.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Professional table styling */
+        .all-sets {
+            background: linear-gradient(145deg, #1a1a1a, #232323);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #6200ea;
+            color: white;
+            font-weight: 1000;
+            padding: 15px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        tr:hover {
+            background: #2a2a2a;
+        }
+
+        /* Tag styling for better readability */
+        .tag {
+            display: inline-block;
+            background: #6200ea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced button styling */
+        button {
+            background: linear-gradient(145deg, #6200ea, #7c4dff);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(98, 0, 234, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(98, 0, 234, 0.4);
+        }
+
+        .delete-btn {
+            background: linear-gradient(145deg, #d32f2f, #f44336);
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .delete-btn:hover {
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+        }
+
+        /* Heading styles */
+        h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Rating highlight */
+        .rating {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 16px;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="left-section">
+            <div class="wheel-section">
+                <h2>Random Spinner</h2>
+                <div class="wheel-container">
+                    <div class="wheel" id="wheel"></div>
+                    <div class="spinner"></div>
+                </div>
+                <button onclick="spinWheel()">Spin</button>
+            </div>
+            
+            <div class="selected-set" id="selectedSet" style="display: none;">
+                <h2>Selected Set Details</h2>
+                <div id="selectedSetContent"></div>
+            </div>
+        </div>
+
+        <div class="all-sets">
+            <h2>All Sets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Set No.</th>
+                        <th>Tags</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody id="allSets">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let sets = {
+            1: { tags: "dp, math, greedy, sorting", rating: 3700 },
+            2: { tags: "binary search, greedy, sorting, brute force, constructive algorithms", rating: 4000 },
+            3: { tags: "dfs and similar, dp, trees, greedy, math, number theory", rating: 4900 },
+            4: { tags: "combinatorics, data structures, geometry, implementation, math, sortings, dsu, greedy, trees", rating: 4800 },
+            5: { tags: "bitmask, brute force, combinatorics, implementation, greedy, trees", rating: 3800 },
+            6: { tags: "number theory, math, brute force, greedy", rating: 3600 },
+            7: { tags: "implementation, constructive algorithms, sortings, greedy, number theory", rating: 3600 },
+            8: { tags: "geometry, implementation, math", rating: 3700 },
+            9: { tags: "data structures, divide and conquer, sortings, brute force, graphs", rating: 4400 },
+            10: { tags: "data structures, brute force, constructive algorithms, greedy", rating: 4700 },
+            11: { tags: "constructive algorithms, graph matchings, greedy, sortings", rating: 4300 },
+            12: { tags: "binary search, implementation, math, dp, greedy", rating: 4500 },
+            13: { tags: "brute force, implementation, math, bitmasks, greedy, strings", rating: 3500 },
+            14: { tags: "math, sortings, brute force, greedy", rating: 2700 },
+            15: { tags: "greedy, implementation, strings, two pointers", rating: 2900 },
+            16: { tags: "data structures, strings, brute force, dp, implementation, math", rating: 3000 },
+            17: { tags: "dp, greedy, dsu, graphs, math", rating: 3700 },
+            18: { tags: "games, greedy, math, sortings, brute force", rating: 3900 },
+            19: { tags: "implementation, sorting", rating: 4100 },
+            20: { tags: "math, number theory", rating: 2900 },
+            21: { tags: "greedy, implementation, data structures, two pointers", rating: 2900 },
+            22: { tags: "binary search, math, ternary search, games, greedy, sortings", rating: 3000 }
+        };
+
+        function createTagsHtml(tags) {
+            return tags.split(", ")
+                .map(tag => `<span class="tag">${tag}</span>`)
+                .join(" ");
+        }
+
+        function updateTable() {
+            const tbody = document.getElementById("allSets");
+            tbody.innerHTML = Object.entries(sets)
+                .map(([setNumber, setData]) => `
+                    <tr>
+                        <td>Set ${setNumber}</td>
+                        <td>${createTagsHtml(setData.tags)}</td>
+                        <td class="rating">${setData.rating}</td>
+                    </tr>
+                `).join("");
+        }
+
+        function showSelectedSet(setNumber) {
+            const selectedSetDiv = document.getElementById("selectedSet");
+            const selectedSetContent = document.getElementById("selectedSetContent");
+            
+            selectedSetContent.innerHTML = `
+                <table>
+                    <tr>
+                        <td><strong>Set ${setNumber}</strong></td>
+                    </tr>
+                    <tr>
+                        <td>${createTagsHtml(sets[setNumber].tags)}</td>
+                    </tr>
+                    <tr>
+                        <td class="rating">${sets[setNumber].rating}</td>
+                    </tr>
+                </table>
+                <button class="delete-btn" onclick="deleteSet(${setNumber})">Delete Set</button>
+            `;
+            
+            selectedSetDiv.style.display = "block";
+            // Trigger animation
+            setTimeout(() => selectedSetDiv.classList.add('visible'), 50);
+        }
+
+        function deleteSet(setNumber) {
+            delete sets[setNumber];
+            const selectedSetDiv = document.getElementById("selectedSet");
+            selectedSetDiv.classList.remove('visible');
+            setTimeout(() => {
+                selectedSetDiv.style.display = "none";
+            }, 300);
+            updateWheel();
+            updateTable();
+        }
+
+        function spinWheel() {
+            const wheel = document.getElementById("wheel");
+            const setNumbers = Object.keys(sets);
+            const numSegments = setNumbers.length;
+
+            if (numSegments === 0) return;
+
+            // Select a random set
+            const randomIndex = Math.floor(Math.random() * numSegments);
+            const selectedSet = setNumbers[randomIndex];
+
+            // Calculate angles
+            const segmentAngle = 360 / numSegments;
+            const offsetAngle = segmentAngle / 2; // Ensures correct alignment
+
+            // Ensure the selected set is at the top
+            const spins = 5 + Math.random() * 5; // Random full spins
+            const degrees = spins * 360 + (segmentAngle * randomIndex) - offsetAngle;
+
+            // Rotate wheel
+            wheel.style.transition = "transform 3s ease-out";
+            wheel.style.transform = `rotate(${degrees}deg)`;
+
+            // Remove previous red highlight
+            document.querySelectorAll(".wheel-segment").forEach(seg => {
+                seg.style.color = "white";
+            });
+
+            setTimeout(() => {
+                showSelectedSet(selectedSet);
+                highlightSelectedSet(selectedSet);
+            }, 3000);
+        }
+
+        function highlightSelectedSet(setNumber) {
+            document.querySelectorAll(".wheel-segment").forEach(segment => {
+                if (segment.textContent === `Set ${setNumber}`) {
+                    segment.style.color = "red"; // Change text color to red
+                    segment.style.fontWeight = "bold"; // Make it stand out
+                }
+            });
+        }
+
+        function updateWheel() {
+            const wheel = document.getElementById("wheel");
+            wheel.innerHTML = "";
+            const setNumbers = Object.keys(sets);
+            const numSegments = setNumbers.length;
+            
+            if (numSegments === 0) return;
+
+            const segmentAngle = 360 / numSegments;
+
+            setNumbers.forEach((setNumber, index) => {
+                const segment = document.createElement("div");
+                segment.className = "wheel-segment";
+                segment.textContent = `Set ${setNumber}`;
+                segment.style.transform = `rotate(${segmentAngle * index}deg)`;
+                segment.style.color = "white"; // Reset colors on update
+                wheel.appendChild(segment);
+            });
+
+            // Reset wheel position
+            wheel.style.transform = "rotate(0deg)";
+        }
+
+        // Initialize the page
+        updateWheel();
+        updateTable();
+    </script>
+</body>
+</html>
