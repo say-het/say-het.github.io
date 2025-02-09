@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Set</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            animation: slideUp 1.2s ease-in-out;
+        }
+
+        input {
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            background: #222;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            background: #333;
+        }
+
+        button {
+            background: #6200ea;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(98, 0, 234, 0.6);
+        }
+
+        button:hover {
+            background: #7c4dff;
+            box-shadow: 0 0 20px rgba(124, 77, 255, 0.8);
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            display: none;
+            text-align: left;
+            width: 300px;
+            animation: fadeIn 0.8s ease-in-out;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Search Set Details</h2>
+    
+    <div class="search-box">
+        <input type="number" id="setNumber" placeholder="Enter Set Number">
+        <button onclick="searchSet()">Search</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        let sets = {
+            1: { tags: "dp, math, greedy, sorting", rating: 3700 },
+            2: { tags: "binary search, greedy, sorting, brute force, constructive algorithms", rating: 4000 },
+            3: { tags: "dfs and similar, dp, trees, greedy, math, number theory", rating: 4900 },
+            4: { tags: "combinatorics, data structures, geometry, implementation, math, sortings, dsu, greedy, trees", rating: 4800 },
+            5: { tags: "bitmask, brute force, combinatorics, implementation, greedy, trees", rating: 3800 },
+            6: { tags: "number theory, math, brute force, greedy", rating: 3600 },
+            7: { tags: "implementation, constructive algorithms, sortings, greedy, number theory", rating: 3600 },
+            8: { tags: "geometry, implementation, math", rating: 3700 },
+            9: { tags: "data structures, divide and conquer, sortings, brute force, graphs", rating: 4400 },
+            10: { tags: "data structures, brute force, constructive algorithms, greedy", rating: 4700 },
+            11: { tags: "constructive algorithms, graph matchings, greedy, sortings", rating: 4300 },
+            12: { tags: "binary search, implementation, math, dp, greedy", rating: 4500 },
+            13: { tags: "brute force, implementation, math, bitmasks, greedy, strings", rating: 3500 },
+            14: { tags: "math, sortings, brute force, greedy", rating: 2700 },
+            15: { tags: "greedy, implementation, strings, two pointers", rating: 2900 },
+            16: { tags: "data structures, strings, brute force, dp, implementation, math", rating: 3000 },
+            17: { tags: "dp, greedy, dsu, graphs, math", rating: 3700 },    
+            18: { tags: "games, greedy, math, sortings, brute force", rating: 3900 },
+            19: { tags: "implementation, sorting", rating: 4100 },
+            20: { tags: "math, number theory", rating: 2900 },
+            21: { tags: "greedy, implementation, data structures, two pointers", rating: 2900 },
+            22: { tags: "binary search, math, ternary search, games, greedy, sortings", rating: 3000 }
+        };
+
+        function searchSet() {
+            let setNum = document.getElementById("setNumber").value;
+            let resultDiv = document.getElementById("result");
+
+            if (sets[setNum]) {
+                resultDiv.innerHTML = `<h3>Set ${setNum}</h3>
+                    <p><strong>Tags:</strong> ${sets[setNum].tags}</p>
+                    <p><strong>Rating:</strong> ${sets[setNum].rating}</p>`;
+                resultDiv.style.display = "block";
+            } else {
+                resultDiv.innerHTML = `<p>Set not found.</p>`;
+                resultDiv.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
