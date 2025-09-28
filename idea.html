@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheetStore - Your Online Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '📊';
+            font-size: 1.5rem;
+        }
+
+        .cart-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .cart-count {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .setup-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .setup-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .connect-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .connect-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .connect-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(45deg, #f0f2f5, #e2e8f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #cbd5e0;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem 0;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .error {
+            background: rgba(254, 178, 178, 0.9);
+            color: #742a2a;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .instructions ol {
+            padding-left: 1.5rem;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .cart-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-total {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: right;
+            margin-top: 1rem;
+            color: #667eea;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem 0;
+            }
+
+            .setup-section, .instructions {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">SheetStore</a>
+                <button class="cart-btn" onclick="openCart()">
+                    🛒 Cart
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="hero">
+                <h1>Welcome to SheetStore</h1>
+                <p>Your products, managed through Google Sheets, displayed beautifully</p>
+            </div>
+
+            <div class="setup-section">
+                <h2 class="setup-title">🔗 Connect Your Google Sheet</h2>
+                <div class="form-group">
+                    <label for="sheetUrl">Google Sheet URL:</label>
+                    <input type="text" id="sheetUrl" placeholder="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit#gid=0">
+                </div>
+                <button class="connect-btn" onclick="connectSheet()" id="connectBtn">
+                    Connect Sheet & Load Products
+                </button>
+            </div>
+
+            <div class="instructions">
+                <h3>📋 How to Set Up Your Google Sheet</h3>
+                <ol>
+                    <li><strong>Create a Google Sheet</strong> with the following columns (in this exact order):
+                        <br><strong>A: name</strong> | <strong>B: description</strong> | <strong>C: price</strong> | <strong>D: image</strong> | <strong>E: stock</strong>
+                    </li>
+                    <li><strong>Make your sheet public:</strong> File → Share → Change to "Anyone with the link"</li>
+                    <li><strong>Copy the sheet URL</strong> and paste it above</li>
+                    <li><strong>Add your products</strong> - each row is one product!</li>
+                    <li><strong>For images:</strong> Use direct image URLs (ending in .jpg, .png, etc.) or upload to Google Drive and use shareable links</li>
+                </ol>
+                <p><strong>Example row:</strong> Awesome T-Shirt | Comfortable cotton t-shirt | 29.99 | https://example.com/shirt.jpg | 10</p>
+            </div>
+
+            <div id="loadingMsg" class="loading" style="display: none;">
+                Loading products from your Google Sheet... ✨
+            </div>
+
+            <div id="errorMsg" class="error" style="display: none;"></div>
+
+            <div id="productsContainer" class="products-grid"></div>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>🛒 Your Cart</h2>
+                <button class="close-cart" onclick="closeCart()">&times;</button>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Total: $0.00</div>
+            <button class="checkout-btn" onclick="checkout()">
+                🚀 Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let products = [];
+
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function addToCart(productIndex) {
+            const product = products[productIndex];
+            const existingItem = cart.find(item => item.name === product.name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: product.name,
+                    price: parseFloat(product.price),
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            
+            // Visual feedback
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = '✅ Added!';
+            button.style.background = '#48bb78';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '#667eea';
+            }, 1000);
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').style.display = 'block';
+            displayCartItems();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+                cartTotal.textContent = 'Total: $0.00';
+                return;
+            }
+            
+            let total = 0;
+            cartItemsContainer.innerHTML = cart.map(item => {
+                total += item.price * item.quantity;
+                return `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            $${item.price.toFixed(2)} × ${item.quantity}
+                        </div>
+                        <div>$${(item.price * item.quantity).toFixed(2)}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            alert('🎉 Thank you for your purchase! This is a demo - integrate with Stripe, PayPal, or your preferred payment processor.');
+        }
+
+        async function connectSheet() {
+            const sheetUrl = document.getElementById('sheetUrl').value.trim();
+            
+            if (!sheetUrl) {
+                showError('Please enter a Google Sheet URL');
+                return;
+            }
+
+            // Extract sheet ID from URL
+            const sheetIdMatch = sheetUrl.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+            if (!sheetIdMatch) {
+                showError('Invalid Google Sheet URL. Please check the format.');
+                return;
+            }
+
+            const sheetId = sheetIdMatch[1];
+            const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=0`;
+
+            document.getElementById('loadingMsg').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'none';
+            document.getElementById('connectBtn').disabled = true;
+
+            try {
+                const response = await fetch(csvUrl);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data. Make sure your sheet is public and the URL is correct.');
+                }
+
+                const csvData = await response.text();
+                const rows = csvData.split('\n').map(row => {
+                    // Simple CSV parsing (handles basic cases)
+                    return row.split(',').map(cell => cell.replace(/"/g, '').trim());
+                });
+
+                // Skip header row and filter out empty rows
+                const productRows = rows.slice(1).filter(row => row.length >= 5 && row[0]);
+
+                products = productRows.map((row, index) => ({
+                    name: row[0] || `Product ${index + 1}`,
+                    description: row[1] || 'No description available',
+                    price: row[2] || '0',
+                    image: row[3] || '',
+                    stock: row[4] || '0'
+                }));
+
+                displayProducts();
+                document.getElementById('loadingMsg').style.display = 'none';
+                
+                if (products.length === 0) {
+                    showError('No products found. Make sure your sheet has data in the correct format.');
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                showError(error.message);
+                document.getElementById('loadingMsg').style.display = 'none';
+            }
+
+            document.getElementById('connectBtn').disabled = false;
+        }
+
+        function displayProducts() {
+            const container = document.getElementById('productsContainer');
+            
+            container.innerHTML = products.map((product, index) => {
+                const price = parseFloat(product.price) || 0;
+                const stock = parseInt(product.stock) || 0;
+                const imageUrl = product.image;
+                
+                return `
+                    <div class="product-card">
+                        ${imageUrl ? 
+                            `<img src="${imageUrl}" alt="${product.name}" class="product-image" onerror="this.style.display='none'">` :
+                            `<div class="product-image">🏪</div>`
+                        }
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">$${price.toFixed(2)}</div>
+                            <button class="add-to-cart" onclick="addToCart(${index})" ${stock <= 0 ? 'disabled' : ''}>
+                                ${stock <= 0 ? '❌ Out of Stock' : '🛒 Add to Cart'}
+                            </button>
+                            <small style="color: #666; margin-top: 0.5rem; display: block;">Stock: ${stock}</small>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMsg');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        // Close cart when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('cartModal');
+            if (event.target === modal) {
+                closeCart();
+            }
+        }
+
+        // Load demo data on page load for demonstration
+        window.onload = function() {
+            // Demo products for initial display
+            products = [
+                {
+                    name: "Demo Product 1",
+                    description: "This is a demo product. Connect your Google Sheet to see your real products!",
+                    price: "29.99",
+                    image: "",
+                    stock: "5"
+                },
+                {
+                    name: "Demo Product 2", 
+                    description: "Another demo product showing how your store will look.",
+                    price: "19.99",
+                    image: "",
+                    stock: "10"
+                }
+            ];
+            displayProducts();
+        };
+    </script>
+</body>
+</html>
